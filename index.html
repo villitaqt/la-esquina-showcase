@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La Esquina POS · una noche de servicio</title>
+  <meta name="description" content="Muestra del sistema de punto de venta de La Esquina: salón, cocina, celular del mozo y caja, contado como una noche de trabajo.">
+  <meta name="theme-color" content="#0d0b0a">
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <div class="luz" aria-hidden="true"></div>
+  <div class="grano" aria-hidden="true"></div>
+
+  <!-- Barra superior: la misma idea que la barra del POS -->
+  <header class="barra">
+    <a class="barra__marca" href="#inicio">
+      <img src="assets/icono.png" alt="" width="28" height="28">
+      <span>LA ESQUINA <b>POS</b></span>
+    </a>
+    <nav class="barra__nav" aria-label="Secciones">
+      <a href="#noche">La noche</a>
+      <a href="#hecho">Cómo está hecho</a>
+      <a href="#pantallas">Pantallas</a>
+    </nav>
+    <div class="barra__estado">
+      <span class="punto" aria-hidden="true"></span>
+      <span class="barra__etiqueta">servicio abierto</span>
+    </div>
+    <div class="barra__reloj" id="reloj" aria-label="Hora actual">--:--</div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
+      <div class="hero__texto">
+        <p class="cejilla" data-revelar>Muestra · sistema interno de una cafetería</p>
+        <h1 class="hero__titulo" data-revelar>
+          <span class="linea">La Esquina</span>
+          <span class="linea linea--pos">POS<em>lo que pasa detrás del mostrador</em></span>
+        </h1>
+        <p class="hero__bajada" data-revelar>
+          Un punto de venta hecho a la medida de un solo local: el salón, la cocina y la caja
+          mirando la misma cuenta al mismo tiempo. Esta página no vende nada. Enseña cómo se ve
+          una noche de trabajo, de la primera mesa al cierre de caja.
+        </p>
+        <a class="hero__bajar" href="#noche" data-revelar>
+          <span>La noche empieza a las 16:52</span>
+          <svg width="14" height="22" viewBox="0 0 14 22" aria-hidden="true"><path d="M7 1v19M1 14l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </a>
+      </div>
+
+      <div class="hero__escena" id="escena">
+        <div class="resplandor" aria-hidden="true"></div>
+        <figure class="portatil hero__portatil">
+          <div class="portatil__pantalla encender">
+            <img src="capturas/mesas.jpg" width="1440" height="810" alt="Pantalla Mesas del POS: plano del salón con mesas en colores según su estado y la lista de cuentas abiertas a la derecha." data-ampliar>
+          </div>
+          <div class="portatil__base" aria-hidden="true"></div>
+        </figure>
+        <figure class="celular hero__celular">
+          <div class="celular__marco encender">
+            <img src="capturas/movil-mesas.jpg" width="390" height="844" alt="Pantalla Mesas en el celular del mozo: tarjetas de cada mesa con su estado y total." data-ampliar>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ CINTA ============ -->
+    <div class="cinta" aria-label="Datos del sistema">
+      <div class="cinta__pista">
+        <span>8 mesas</span><i>✦</i><span>2 asientos de barra</span><i>✦</i><span>para llevar</span><i>✦</i>
+        <span>Yape</span><i>✦</i><span>Plin</span><i>✦</i><span>Efectivo</span><i>✦</i><span>Tarjeta</span><i>✦</i>
+        <span>ticket de 48 columnas</span><i>✦</i><span>funciona sin internet</span><i>✦</i><span>IGV incluido</span><i>✦</i>
+        <span>PIN de 4 dígitos</span><i>✦</i><span>modo práctica</span><i>✦</i>
+      </div>
+      <div class="cinta__pista" aria-hidden="true">
+        <span>8 mesas</span><i>✦</i><span>2 asientos de barra</span><i>✦</i><span>para llevar</span><i>✦</i>
+        <span>Yape</span><i>✦</i><span>Plin</span><i>✦</i><span>Efectivo</span><i>✦</i><span>Tarjeta</span><i>✦</i>
+        <span>ticket de 48 columnas</span><i>✦</i><span>funciona sin internet</span><i>✦</i><span>IGV incluido</span><i>✦</i>
+        <span>PIN de 4 dígitos</span><i>✦</i><span>modo práctica</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ============ LA NOCHE ============ -->
+    <section class="noche" id="noche">
+      <aside class="riel" aria-hidden="true">
+        <div class="riel__pegado">
+          <div class="riel__reloj" id="relojRelato">16:52</div>
+          <div class="riel__linea">
+            <div class="riel__relleno" id="rielRelleno"></div>
+            <ol class="riel__horas">
+              <li>17</li><li>18</li><li>19</li><li>20</li><li>21</li><li>22</li><li>23</li><li>24</li>
+            </ol>
+          </div>
+          <p class="riel__nota">hora del relato</p>
+        </div>
+      </aside>
+
+      <div class="noche__cuerpo">
+        <header class="noche__intro" data-revelar>
+          <p class="cejilla">Capítulo por capítulo</p>
+          <h2>Una noche de servicio</h2>
+          <p>Todas las capturas salen del sistema real, en modo práctica y con datos de ejemplo.
+             Nada está maquetado encima: así se ve en la laptop del local y en el celular del salón.</p>
+        </header>
+
+        <!-- 16:52 -->
+        <article class="capitulo" data-hora="16:52">
+          <div class="capitulo__cabeza" data-revelar>
+            <span class="capitulo__hora">16:52</span>
+            <h3>Se abre la caja</h3>
+          </div>
+          <div class="capitulo__texto" data-revelar>
+            <p>Se entra con el mismo PIN de cuatro dígitos con el que se marca turno. No hay roles:
+               cualquiera puede hacer todo. Lo que el sistema distingue son <b>dispositivos</b>
+               (la laptop de caja y el celular del salón), no personas.</p>
+            <p class="dato">La sesión dura el turno y se cierra sola a las 14 horas.</p>
+          </div>
+          <figure class="capitulo__figura" data-revelar>
+            <div class="portatil">
+              <div class="portatil__pantalla encender">
+                <img src="capturas/login.jpg" width="1440" height="810" loading="lazy" alt="Pantalla de inicio de sesión con teclado numérico para el PIN." data-ampliar>
+              </div>
+              <div class="portatil__base" aria-hidden="true"></div>
+            </div>
+          </figure>
+        </article>
+
+        <!-- 17:40 -->
+        <article class="capitulo" data-hora="17:40">
+          <div class="capitulo__cabeza" data-revelar>
+            <span class="capitulo__hora">17:40</span>
+            <h3>El salón, visto desde arriba</h3>
+          </div>
+          <div class="capitulo__texto" data-revelar>
+            <p>Las mesas son un plano del local, no una lista. Cada una dice en qué está con color
+               <i>y</i> con forma: el borde punteado, la franja lateral o el relleno hablan aunque no
+               se distinga el color.</p>
+            <ul class="estados">
+              <li><span class="est est--libre"></span>Libre</li>
+              <li><span class="est est--tomando"></span>Tomando pedido</li>
+              <li><span class="est est--cocinando"></span>Cocinando</li>
+              <li><span class="est est--servido"></span>Servido</li>
+              <li><span class="est est--cobrando"></span>Cobrando</li>
+            </ul>
+          </div>
+          <figure class="capitulo__figura" data-revelar>
+            <div class="portatil">
+              <div class="portatil__pantalla encender">
+                <img src="capturas/mesas.jpg" width="1440" height="810" loading="lazy" alt="Plano del salón: Mesa 2, 3 y 4 cocinando en ámbar, Mesa 6 servida en verde y Mesa 8 cobrando en rojo." data-ampliar>
+              </div>
+              <div class="portatil__base" aria-hidden="true"></div>
+            </div>
+          </figure>
+        </article>
+
+        <!-- 18:15 -->
+        <article class="capitulo" data-hora="18:15">
+          <div class="capitulo__cabeza" data-revelar>
+            <span class="capitulo__hora">18:15</span>
+            <h3>Tomar el pedido</h3>
+          </div>
+          <div class="capitulo__texto" data-revelar>
+            <p>Se toca el producto y entra a la cuenta. Tocar el mismo otra vez suma cantidad en vez
+               de abrir otro renglón. El waffle y el crepe se <b>arman</b>: cada uno tiene su propia
+               lista de agregados y cada agregado suma al precio de la unidad.</p>
+            <p class="dato">Enviar abre la cuenta e imprime la comanda en un solo paso.</p>
+          </div>
+          <figure class="capitulo__figura apilado" data-revelar>
+            <div class="portatil">
+              <div class="portatil__pantalla encender">
+                <img src="capturas/pedido.jpg" width="1440" height="810" loading="lazy" alt="Tomar pedido: categorías a la izquierda, productos al centro y el pedido nuevo con su total a la derecha." data-ampliar>
+              </div>
+              <div class="portatil__base" aria-hidden="true"></div>
+            </div>
+            <div class="flotante">
+              <img src="capturas/armador.jpg" width="1440" height="810" loading="lazy" alt="Ventana Armar Waffle armable con fresa, manjar y helado marcados: S/ 26.00." data-ampliar>
+              <figcaption>Armar un waffle: fresa, manjar, helado</figcaption>
+            </div>
+          </figure>
+        </article>
+
+        <!-- 19:00 -->
+        <article class="capitulo" data-hora="19:00">
+          <div class="capitulo__cabeza" data-revelar>
+            <span class="capitulo__hora">19:00</span>
+            <h3>La comanda baja a cocina</h3>
+          </div>
+          <div class="capitulo__texto" data-revelar>
+            <p>La hora más fuerte. La cocina ve cada comanda y decide: <b>Aceptar</b> o
+               <b>No se puede</b>. Si no se puede, la ronda entera vuelve a quien tomó el pedido y
+               se puede corregir. Lo que ya se aceptó no se toca desde el salón.</p>
+            <p class="dato">La comanda sale impresa sin precios, con los agregados indentados.</p>
+          </div>
+          <figure class="capitulo__figura con-ticket" data-revelar>
+            <div class="portatil">
+              <div class="portatil__pantalla encender">
+                <img src="capturas/cocina.jpg" width="1440" height="810" loading="lazy" alt="Tablero de cocina con dos comandas por aceptar y tres cocinando." data-ampliar>
+              </div>
+              <div class="portatil__base" aria-hidden="true"></div>
+            </div>
+            <div class="impresora" aria-label="Comanda impresa de la Mesa 2">
+              <div class="impresora__boca" aria-hidden="true"></div>
+              <pre class="ticket" data-ticket>================================================
+                 MESA 2  19:00
+================================================
+Pedido 0007 · comanda 1              Mozo: Salón
+------------------------------------------------
+ 2 x SALCHIPAPA ESPECIAL
+      (una sin ají)
+ 1 x WAFFLE ARMABLE
+      + Fresa, Nutella
+ 2 x CHICHA MORADA
+ 1 x GASEOSA PERSONAL
+================================================</pre>
+            </div>
+          </figure>
+        </article>
+
+        <!-- 20:10 -->
+        <article class="capitulo" data-hora="20:10">
+          <div class="capitulo__cabeza" data-revelar>
+            <span class="capitulo__hora">20:10</span>
+            <h3>El mozo, desde el celular</h3>
+          </div>
+          <div class="capitulo__texto" data-revelar>
+            <p>El mismo sistema entra por el celular, por la red del local. Sin instalar nada:
+               el mozo ve las mesas, toma el pedido parado junto a la mesa y lo manda a cocina.
+               La laptop se entera al instante.</p>
+          </div>
+          <figure class="capitulo__figura telefonos" data-revelar>
+            <div class="celular">
+              <div class="celular__marco encender">
+                <img src="capturas/movil-login.jpg" width="390" height="844" loading="lazy" alt="Inicio de sesión en el celular con teclado de PIN." data-ampliar>
+              </div>
+              <figcaption>Entrar</figcaption>
+            </div>
+            <div class="celular">
+              <div class="celular__marco encender">
+                <img src="capturas/movil-mesas.jpg" width="390" height="844" loading="lazy" alt="Mesas en el celular, cada una con su estado y total." data-ampliar>
+              </div>
+              <figcaption>Ver el salón</figcaption>
+            </div>
+            <div class="celular">
+              <div class="celular__marco encender">
+                <img src="capturas/movil-pedido.jpg" width="390" height="844" loading="lazy" alt="Tomando pedido para la Mesa 1 en el celular: cappuccino y latte, botón Revisar y enviar." data-ampliar>
+              </div>
+              <figcaption>Tomar el pedido</figcaption>
+            </div>
+          </figure>
+        </article>
+
+        <!-- 21:20 -->
+        <article class="capitulo" data-hora="21:20">
+          <div class="capitulo__cabeza" data-revelar>
+            <span class="capitulo__hora">21:20</span>
+            <h3>Todas las cuentas a la vista</h3>
+          </div>
+          <div class="capitulo__texto" data-revelar>
+            <p>La otra cara del salón: cada cuenta como tarjeta, con lo que pidió, cuánto lleva y
+               hace cuánto. Se ordenan por mesa, tiempo, estado o total, o se arrastran a mano.
+               Los pedidos para llevar van aparte, con su número del turno.</p>
+          </div>
+          <figure class="capitulo__figura" data-revelar>
+            <div class="portatil">
+              <div class="portatil__pantalla encender">
+                <img src="capturas/ordenes.jpg" width="1440" height="810" loading="lazy" alt="Gestión de órdenes: tarjetas de cada mesa con productos y total, y una fila de Para llevar abajo." data-ampliar>
+              </div>
+              <div class="portatil__base" aria-hidden="true"></div>
+            </div>
+          </figure>
+        </article>
+
+        <!-- 22:45 -->
+        <article class="capitulo" data-hora="22:45">
+          <div class="capitulo__cabeza" data-revelar>
+            <span class="capitulo__hora">22:45</span>
+            <h3>Cobrar, en una sola operación</h3>
+          </div>
+          <div class="capitulo__texto" data-revelar>
+            <p>La mesa pide la cuenta: sale la precuenta y la mesa se pinta de rojo. Al cobrar se
+               pueden mezclar formas de pago (Yape, Plin, efectivo con vuelto, tarjeta) o dividir
+               entre dos, tres o cuatro. Nada se guarda hasta que todo cuadra.</p>
+            <p class="dato">Después se ofrece el comprobante; no antes.</p>
+          </div>
+          <figure class="capitulo__figura apilado apilado--izq" data-revelar>
+            <div class="portatil">
+              <div class="portatil__pantalla encender">
+                <img src="capturas/cobrar-detalle.jpg" width="1440" height="810" loading="lazy" alt="Cobrar la Mesa 8: detalle de la cuenta, formas de pago, vuelto y botón Cobrar S/ 32.00." data-ampliar>
+              </div>
+              <div class="portatil__base" aria-hidden="true"></div>
+            </div>
+            <div class="flotante">
+              <img src="capturas/cobrar.jpg" width="1440" height="810" loading="lazy" alt="Lista de cuentas por cobrar, con la Mesa 8 destacada como cobrando." data-ampliar>
+              <figcaption>¿Qué cuenta vas a cobrar?</figcaption>
+            </div>
+          </figure>
+        </article>
+
+        <!-- 23:58 -->
+        <article class="capitulo capitulo--cierre" data-hora="23:58">
+          <div class="capitulo__cabeza" data-revelar>
+            <span class="capitulo__hora">23:58</span>
+            <h3>Cierre de la jornada</h3>
+          </div>
+          <div class="capitulo__texto" data-revelar>
+            <p>La jornada es la de la caja abierta, no la del calendario: si la caja abrió el sábado
+               y se cierra pasada la medianoche, todo cuenta en la misma noche.</p>
+          </div>
+          <dl class="cifras" data-revelar>
+            <div><dt>Venta de la jornada</dt><dd data-contar="723" data-prefijo="S/ " data-decimales="2">S/ 723.00</dd></div>
+            <div><dt>Tickets</dt><dd data-contar="26">26</dd></div>
+            <div><dt>Ticket promedio</dt><dd data-contar="27.81" data-prefijo="S/ " data-decimales="2">S/ 27.81</dd></div>
+            <div><dt>Hora más fuerte</dt><dd>19:00</dd></div>
+          </dl>
+          <figure class="capitulo__figura" data-revelar>
+            <div class="portatil">
+              <div class="portatil__pantalla encender">
+                <img src="capturas/ventas.jpg" width="1440" height="810" loading="lazy" alt="Ventas de la jornada: venta por hora con pico a las 19:00, más vendidos y cómo pagaron." data-ampliar>
+              </div>
+              <div class="portatil__base" aria-hidden="true"></div>
+            </div>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CÓMO ESTÁ HECHO ============ -->
+    <section class="hecho" id="hecho">
+      <header class="hecho__cabeza" data-revelar>
+        <p class="cejilla">Por dentro</p>
+        <h2>Cómo está hecho</h2>
+        <p>Pensado para un local que no puede quedarse sin sistema a mitad del servicio.</p>
+      </header>
+      <div class="hecho__rejilla">
+        <article data-revelar>
+          <span class="hecho__num">01</span>
+          <h3>Vive en el local</h3>
+          <p>El servidor corre en la misma laptop de caja, con su base SQLite. Si se cae el internet, el servicio sigue.</p>
+        </article>
+        <article data-revelar>
+          <span class="hecho__num">02</span>
+          <h3>Laptop y celular</h3>
+          <p>Escritorio en Electron para la caja; el celular del salón entra por la red del local y se entera de todo en vivo.</p>
+        </article>
+        <article data-revelar>
+          <span class="hecho__num">03</span>
+          <h3>Papel de verdad</h3>
+          <p>Comandas, precuentas y notas de venta salen por una térmica POS-80, a 48 columnas.</p>
+        </article>
+        <article data-revelar>
+          <span class="hecho__num">04</span>
+          <h3>Modo práctica</h3>
+          <p>Una copia de la base para entrenar a alguien nuevo sin que la base real reciba una sola escritura.</p>
+        </article>
+        <article data-revelar>
+          <span class="hecho__num">05</span>
+          <h3>Panel del dueño</h3>
+          <p>Un espejo de las ventas sube a la nube para mirarlas desde fuera del local; la operación nunca depende de él.</p>
+        </article>
+        <article data-revelar>
+          <span class="hecho__num">06</span>
+          <h3>Se actualiza solo</h3>
+          <p>Cada versión nueva llega a la laptop sin reinstalar y sin tocar los datos.</p>
+        </article>
+      </div>
+      <ul class="pila" data-revelar aria-label="Tecnologías">
+        <li>TypeScript</li><li>React</li><li>Vite</li><li>Node 24</li><li>Express 5</li>
+        <li>node:sqlite</li><li>Electron</li><li>Cloudflare Workers</li><li>D1</li>
+      </ul>
+    </section>
+
+    <!-- ============ PANTALLAS ============ -->
+    <section class="pantallas" id="pantallas">
+      <header class="pantallas__cabeza" data-revelar>
+        <div>
+          <p class="cejilla">Galería</p>
+          <h2>Todas las pantallas</h2>
+        </div>
+        <div class="pantallas__botones">
+          <button type="button" class="boton-flecha" data-desplazar="-1" aria-label="Anterior">←</button>
+          <button type="button" class="boton-flecha" data-desplazar="1" aria-label="Siguiente">→</button>
+        </div>
+      </header>
+      <div class="tira" id="tira" tabindex="0" aria-label="Capturas del sistema, desplazables">
+        <figure><img src="capturas/mesas.jpg" width="1440" height="810" loading="lazy" alt="Mesas: plano del salón" data-ampliar><figcaption><b>Mesas</b> plano del salón</figcaption></figure>
+        <figure><img src="capturas/ordenes.jpg" width="1440" height="810" loading="lazy" alt="Gestión de órdenes" data-ampliar><figcaption><b>Gestión de órdenes</b> cuentas como tarjetas</figcaption></figure>
+        <figure><img src="capturas/pedido.jpg" width="1440" height="810" loading="lazy" alt="Tomar pedido" data-ampliar><figcaption><b>Tomar pedido</b> rejilla de productos</figcaption></figure>
+        <figure><img src="capturas/armador.jpg" width="1440" height="810" loading="lazy" alt="Armador de waffle" data-ampliar><figcaption><b>Armador</b> agregados por producto</figcaption></figure>
+        <figure><img src="capturas/cocina.jpg" width="1440" height="810" loading="lazy" alt="Cocina" data-ampliar><figcaption><b>Cocina</b> aceptar o rechazar</figcaption></figure>
+        <figure><img src="capturas/entregas.jpg" width="1440" height="810" loading="lazy" alt="Entregas" data-ampliar><figcaption><b>Entregas</b> lo que sale a las mesas</figcaption></figure>
+        <figure><img src="capturas/cobrar.jpg" width="1440" height="810" loading="lazy" alt="Cobrar: lista de cuentas" data-ampliar><figcaption><b>Cobrar</b> cuentas abiertas</figcaption></figure>
+        <figure><img src="capturas/cobrar-detalle.jpg" width="1440" height="810" loading="lazy" alt="Cobrar: detalle" data-ampliar><figcaption><b>Cobro</b> pagos mixtos y vuelto</figcaption></figure>
+        <figure><img src="capturas/ventas.jpg" width="1440" height="810" loading="lazy" alt="Ventas" data-ampliar><figcaption><b>Ventas</b> por jornada, semana o mes</figcaption></figure>
+        <figure><img src="capturas/carta.jpg" width="1440" height="810" loading="lazy" alt="Carta y precios" data-ampliar><figcaption><b>Carta y precios</b> editable como hoja</figcaption></figure>
+        <figure><img src="capturas/login.jpg" width="1440" height="810" loading="lazy" alt="Inicio de sesión" data-ampliar><figcaption><b>Inicio</b> PIN de 4 dígitos</figcaption></figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="pie__grande" aria-hidden="true">23:58</div>
+    <div class="pie__fila">
+      <p><b>La Esquina POS</b> · hecho por Diego para el local.</p>
+      <p>Capturas del sistema real en modo práctica, con datos de ejemplo.</p>
+      <a href="#inicio">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <dialog class="visor" id="visor" aria-label="Captura ampliada">
+    <button type="button" class="visor__cerrar" aria-label="Cerrar">×</button>
+    <img alt="">
+    <p class="visor__pie"></p>
+  </dialog>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
